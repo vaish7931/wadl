@@ -1,0 +1,16 @@
+Dockerfile
+
+FROM node:alpine
+COPY . /docker1
+CMD node /docker1/app.js
+
+app.js
+
+console.log('Dhananjay')
+console.log('35036')
+
+Run the command to build an image from the docker file
+docker build -t docker1 .
+
+4) Run the command to see the all images
+docker images
