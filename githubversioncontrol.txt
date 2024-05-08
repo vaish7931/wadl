@@ -1,0 +1,14 @@
+git config --global user.name "Your Name"
+git config --global user.email "your_email@example.com"
+
+cd /path/to/your/code
+
+git init
+
+git add .
+
+git commit -m "Initial commit"
+
+git remote add origin <repository_URL>
+
+git push -u origin master
