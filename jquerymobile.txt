@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>JQuery Mobile</title>
+<link
+rel="stylesheet"
+href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"
+/>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+<div data-role="navbar">
+<ul>
+<li><a href="#" class="ui-btn-active">Home</a></li>
+<li><a href="#">About</a></li>
+<li><a href="#">Services</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h1>Registration Form</h1>
+<form action="">
+<label for="name">Enter your name:</label>
+<input type="text" name="name" id="name" value="" />
+<label for="date">Date Of Birth:</label>
+<input type="date" name="date" id="date" value="" />
+<label for="tel">Contact:</label>
+<input type="tel" name="tel" id="tel" value="" />
+<label for="address">Enter your address:</label>
+
+<input type="text" name="address" id="address" value="" />
+<button class="ui-shadow ui-btn ui-corner-all">Submit</button>
+</form>
+</div>
+</body>
+</html>
