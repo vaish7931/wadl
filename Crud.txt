@@ -1,0 +1,75 @@
+// Require necessary modules
+const express = require('express');
+const mongoose = require('mongoose');
+
+// Create Express app
+const app = express();
+app.use(express.json());
+
+// Connect to MongoDB
+mongoose.connect('mongodb://localhost:27017/mydatabase', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.once('open', () => {
+    console.log('Connected to MongoDB');
+});
+
+// Define Item schema and model
+const itemSchema = new mongoose.Schema({
+    name: String,
+    description: String,
+    price: Number
+});
+const Item = mongoose.model('Item', itemSchema);
+
+// Create a new item
+app.post('/items', async (req, res) => {
+    try {
+        const newItem = new Item(req.body);
+        await newItem.save();
+        res.status(201).json(newItem);
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
+});
+
+// Get all items
+app.get('/items', async (req, res) => {
+    try {
+        const items = await Item.find();
+        res.json(items);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
+// Update an existing item
+app.put('/items/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        const updatedItem = await Item.findByIdAndUpdate(id, req.body, { new: true });
+        res.json(updatedItem);
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
+});
+
+// Delete an item
+app.delete('/items/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        await Item.findByIdAndDelete(id);
+        res.json({ message: 'Item deleted' });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
+// Start the server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
