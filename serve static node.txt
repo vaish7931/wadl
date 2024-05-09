@@ -158,7 +158,7 @@ index.js
 		</section>
 
 		<footer>
-			<p>some cool footer 2017 &copy;</p>
+			<p>some cool footer by devteam &copy;</p>
 		</footer>
 	</body>
 </html>
