@@ -95,7 +95,7 @@ html, body {
 }
 
 .showPage {
-  background: url(../images/barcelona.jpg)center;
+  background: url(barcelona.jpg)center;
   background-size: cover;
   height: 100vh;
   display: flex;
