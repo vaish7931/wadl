@@ -81,7 +81,7 @@ index.js
 
 
 
-css
+styles.css
 
 * {
   margin: 0;
