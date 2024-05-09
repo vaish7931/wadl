@@ -12,9 +12,10 @@ console.log('Server listening on port 3000.');
 });
 
 
+make folder "public" inside which create index.html and paste a image 
 
 
-index.js
+index.html
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -163,7 +164,8 @@ index.js
 	</body>
 </html>
 
-
+run >   npm i express path 
+run > node server.js
 
  
 
